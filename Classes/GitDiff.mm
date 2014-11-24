@@ -177,7 +177,7 @@ static void handler( int sig ) {
 - (id)initWithFilepath:(NSString *)path
 {
     if ( (self = [super init]) ) {
-        NSString *command = [NSString stringWithFormat:@"cd \"%@\" && /usr/bin/git diff \"%@\"",
+        NSString *command = [NSString stringWithFormat:@"cd \"%@\" && /usr/bin/git diff origin/chromium \"%@\"",
                              [path stringByDeletingLastPathComponent], path];
         NSMutableSet *diffSet = [[NSMutableSet alloc] init];
         void (*savepipe)(int) = signal( SIGPIPE, handler );
